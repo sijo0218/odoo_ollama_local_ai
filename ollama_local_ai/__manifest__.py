@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Ollama Local AI Copilot (100% Private & GDPR Compliant)',
-    'version': '18.0.1.0.0',
+    'version': '17.0.1.0.0',
     'category': 'Extra Tools/Productivity',
     'summary': 'Connect Odoo to local Ollama (Llama 3, DeepSeek, Mistral). 100% Private On-Premise AI for CRM, Leads & Mail. $0 API Fees.',
     'description': """
