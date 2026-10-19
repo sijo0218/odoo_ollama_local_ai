@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Ollama Local AI Copilot (100% Private & GDPR Compliant)',
-    'version': '20.0.1.0.0',
+    'version': '18.0.1.0.0',
     'category': 'Extra Tools/Productivity',
     'summary': 'Connect Odoo to local Ollama (Llama 3, DeepSeek, Mistral). 100% Private On-Premise AI for CRM, Leads & Mail. $0 API Fees.',
     'description': """
@@ -25,7 +25,7 @@ Key Benefits:
     'currency': 'EUR',
     'depends': ['base', 'mail', 'crm', 'base_setup'],
     'data': [
-        'security/ir.access.csv',
+        'security/ir.model.access.csv',
         'views/res_config_settings_views.xml',
         'views/crm_lead_views.xml',
         'views/mail_compose_message_views.xml',
