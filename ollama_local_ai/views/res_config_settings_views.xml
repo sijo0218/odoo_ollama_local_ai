@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_ollama" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.ollama</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="95"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Local AI" string="Local AI" name="ollama_local_ai">
+                    <block title="Ollama Private AI Copilot" id="ollama_settings_block">
+                        <setting id="ollama_enable_setting" help="Enable local AI assistance across CRM and Mail Composer.">
+                            <field name="ollama_enabled"/>
+                        </setting>
+
+                        <div invisible="not ollama_enabled">
+                            <block title="Connection &amp; Server Settings">
+                                <setting id="ollama_endpoint_setting" string="Ollama URL" help="Address of your local or network Ollama instance (default: http://localhost:11434).">
+                                    <field name="ollama_endpoint" required="ollama_enabled"/>
+                                </setting>
+                                <setting id="ollama_model_setting" string="Model" help="Model tag pulled in Ollama (e.g., llama3, deepseek-r1, mistral, qwen2.5).">
+                                    <field name="ollama_model" required="ollama_enabled"/>
+                                </setting>
+                                <setting id="ollama_temp_setting" string="Creativity" help="Temperature between 0.1 (deterministic) and 1.0 (creative).">
+                                    <field name="ollama_temperature"/>
+                                </setting>
+                                <div class="mt-3">
+                                    <button name="action_test_ollama_connection" type="object" string="Test Ollama Connection" class="btn btn-outline-primary"/>
+                                </div>
+                            </block>
+                        </div>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

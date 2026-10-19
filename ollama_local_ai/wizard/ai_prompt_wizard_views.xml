@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ai_prompt_wizard_form" model="ir.ui.view">
+        <field name="name">ai.prompt.wizard.form</field>
+        <field name="model">ai.prompt.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Local AI Copilot (Ollama)">
+                <div class="alert alert-info d-flex align-items-center mb-3" role="alert">
+                    <span class="fa fa-lock fa-2x me-3 text-primary"/>
+                    <div>
+                        <strong>100% On-Premise &amp; Private: </strong> Powered by local Ollama. Zero data sent to third-party cloud APIs.
+                    </div>
+                </div>
+
+                <group>
+                    <field name="model" readonly="1"/>
+                    <field name="prompt" rows="3"/>
+                </group>
+
+                <div invisible="not response" class="mt-3 p-3 bg-light rounded border">
+                    <h5 class="text-primary"><i class="fa fa-robot me-2"/>AI Response</h5>
+                    <field name="response"/>
+                </div>
+
+                <footer>
+                    <button name="action_generate" string="Generate with Local AI" type="object" class="btn btn-primary"/>
+                    <button string="Close" class="btn btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ai_prompt_wizard" model="ir.actions.act_window">
+        <field name="name">Ask Local AI</field>
+        <field name="res_model">ai.prompt.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

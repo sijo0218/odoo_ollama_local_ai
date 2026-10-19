@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+access_ai_prompt_wizard,ai.prompt.wizard,ai.prompt.wizard,base.group_user,crud,

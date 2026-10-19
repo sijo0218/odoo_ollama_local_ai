@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_lead_view_form_inherit_ollama" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit.ollama</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_generate_ai_summary" string="AI Deal Brief" type="object" class="btn-outline-primary" icon="fa-bolt"/>
+                <button name="action_predict_ai_next_step" string="AI Next Action" type="object" class="btn-outline-secondary" icon="fa-magic"/>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="AI Deal Intelligence" name="ai_intelligence_tab">
+                    <div invisible="not ai_next_action" class="alert alert-info d-flex align-items-center mb-3" role="alert">
+                        <span class="fa fa-lightbulb-o fa-2x me-3 text-warning"/>
+                        <div>
+                            <strong>AI Recommended Action: </strong>
+                            <field name="ai_next_action" readonly="1" class="d-inline"/>
+                        </div>
+                    </div>
+
+                    <group string="AI Executive Brief &amp; Deal Strategy">
+                        <field name="ai_summary" nolabel="1" readonly="1"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

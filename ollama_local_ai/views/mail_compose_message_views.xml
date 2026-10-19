@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="email_compose_message_wizard_form_inherit_ollama" model="ir.ui.view">
+        <field name="name">mail.compose.message.form.inherit.ollama</field>
+        <field name="model">mail.compose.message</field>
+        <field name="inherit_id" ref="mail.email_compose_message_wizard_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='body']" position="before">
+                <div class="p-3 mb-2 rounded bg-light border">
+                    <div class="row align-items-center g-2">
+                        <div class="col-md-3">
+                            <label for="ai_tone" string="AI Tone:" class="fw-bold me-2"/>
+                            <field name="ai_tone" class="d-inline-block"/>
+                        </div>
+                        <div class="col-md-6">
+                            <field name="ai_prompt_guidance" placeholder="Custom instructions (e.g., offer 10% discount, schedule demo)..."/>
+                        </div>
+                        <div class="col-md-3 text-end">
+                            <button name="action_ai_generate_draft" string="AI Draft / Polish" type="object" class="btn btn-sm btn-primary" icon="fa-magic"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
